@@ -83,7 +83,7 @@ resource "aws_lb_listener" "main" {
 }
 
 resource "aws_instance" "server" {
-  count         = 2
+  count         = 3
   ami           = "ami-0ebfd941bbafe70c6" # Example AMI ID
   instance_type = "t2.micro"
   subnet_id     = element([aws_subnet.subnet1.id, aws_subnet.subnet2.id], count.index % 2)
